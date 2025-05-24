@@ -15,7 +15,6 @@ tck, u = splprep([x, y], s=0, per=True)  # 'per=True' means the track will be cl
 u_new = np.linspace(0, 1, 1000)  # 1000 points for smoothness
 x_new, y_new = splev(u_new, tck)
 
-# Ploting the original waypoints and interpolated path
 plt.plot(x, y, 'ro', label='Original Waypoints')
 plt.plot(x_new, y_new, 'b-', label='Interpolated Path')
 
