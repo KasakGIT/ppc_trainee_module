@@ -51,7 +51,7 @@ def stanley_steering(x, y, yaw, v, waypoints, k=5.0, ks=1e-2, max_steer=np.radia
     cross_track_error = np.dot([fx - waypoints[target_idx,0], fy - waypoints[target_idx,1]], path_normal)
     
     # Stanley control law
-    cross_track_steer = np.arctan2(k * cross_track_error, max(v, 0.1) + ks)  # Ensure non-zero velocity
+    cross_track_steer = -np.arctan2(k * cross_track_error, max(v, 0.1) + ks)  # Ensure non-zero velocity
     steer = heading_error + cross_track_steer
     steer = np.clip(steer, -max_steer, max_steer)
     
